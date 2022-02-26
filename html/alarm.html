@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/alarm.css" />
+		<script
+			src="https://kit.fontawesome.com/d03876b445.js"
+			crossorigin="anonymous"
+		></script>
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+			<link
+				href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;1,300&display=swap"
+				rel="stylesheet"
+			/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<div class="top">
+					<a href="../html/choice.html"><h1>Alarm</h1></a>
+					<p class="info">
+						<i class="fas fa-question"></i>
+					</p>
+				</div>
+				<div class="menu">
+                    <button class="navBtns alarm"><a href="../html/alarm.html"><i class="fas fa-bell"></i></a></button>
+                    <button class="navBtns clock"><a href="../html/time.html"><i class="fas fa-clock"></i></a></i></button>
+                    <button class="navBtns stopwtch"><a href="../html/stopwatch.html"><i class="fas fa-stopwatch"></i></a></button>
+                    <button class="navBtns timer"><a href="../html/countdown.html"><i class="fas fa-hourglass"></i></a></button>
+                </div>
+				<div class="alarmContainer">
+					<ul>
+						
+
+					</ul>
+				</div>
+				<div class="addAlarm">
+					<p class="addAlarmBtn"><i class="fas fa-plus-circle"></i></p>
+				</div>
+				<div class="alarmShadow">
+					<div class="alarmModal">
+						<div class="alarmTop">
+							<p class="cancelBtn"><i class="fas fa-times"></i></p>
+							<p>Add alarm</p>
+							<p class="confirmBtn"><i class="fas fa-check"></i></p>
+						</div>
+						<div class="alarmTime">
+							<button class="hourDown"><i class="fas fa-chevron-left"></i></button>
+							<input type="number"  class="hour" placeholder="Hr" maxlength="2" onkeypress="return event.charCode != 45"
+							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+							<button class=" hourUp"><i class="fas fa-chevron-right"></i></button>
+							<p>:</p>
+							<button class="minDown"><i class="fas fa-chevron-left"></i></button>
+							<input type="number" class="minute" placeholder="Min" maxlength="2" onkeypress="return event.charCode != 45"
+							oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" />
+							<button class="minUp"><i class="fas fa-chevron-right"></i></i></button>
+						</div>
+						<div class="alarmMenu">
+							<div class="ringtone">
+								<p>Ringtone</p>
+								<select name="" id="" class="selected">
+									<option value="1">Weather alarm</option>
+									<option value="2">Nature alarm</option>
+									<option value="3">Morning dew</option>
+									<option value="4">Fireflies</option>
+									<option value="5">Daydream</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="topDecorCont">
+					<div class="mainTopDecor"></div>
+					<div class="topTripleDecor">
+						<div class="topOne"></div>
+						<div class="topTwo"></div>
+						<div class="topThree"></div>
+					</div>
+				</div>
+				<div class="botDecorCont">
+					<div class="botTripleDecor">
+						<div class="botOne"></div>
+						<div class="botTwo"></div>
+						<div class="botThree"></div>
+					</div>
+					<div class="mainBotDecor"></div>
+				</div>
+
+
+		</div>
+        <div class="offAlarm">
+			<div class="alarmModal">
+				<button class="turnOff">Turn OFF</button>
+			</div>
+		</div>
+
+		<div class="modal-shadow">
+			<div class="modal">
+				<h3>Info:</h3>
+				<p><i class="fas fa-times"></i> - Remove alarm</p>
+				<p><i class="fas fa-plus-circle"></i> - Add alarm</p>
+				
+				<button class="close">Close</button>
+			</div>
+		</div>
+
+		<script src="../js/main.js"></script>
+		<script src="../js/alarm.js"></script>
+	</body>
+</html>

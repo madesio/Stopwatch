@@ -1,0 +1,390 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0;
+}
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+body {
+	position: relative;
+	height: 100vh;
+	font-family: 'Roboto Mono', monospace;
+	background-color: #1a1f39;
+	color: #fff;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding: 15px 0;
+	.top {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 15px;
+		color: #83EEFF;
+		a {
+			text-decoration: none;
+			color: #83EEFF;
+		}
+		.info {
+			margin: auto 0;
+			font-size: 20px;
+			i {
+				cursor: pointer;
+				padding: 10px;
+			}
+		}
+	}
+	.menu {
+		display: flex;
+		justify-content: space-around;
+		height: 30px;
+		.navBtns {
+			cursor: pointer;
+			color: #e7d315;
+			background: none;
+			border: none;
+			font-size: 1em;
+			padding: 1px 0;
+			a {
+				text-decoration: none;
+				color: var(--red);
+			}
+			i {
+				padding: 15px;
+			}
+		}
+		.active {
+			color: var(--red);
+			border-bottom: 1px solid var(--red);
+		}
+	}
+	.clockContainer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-top: 35px;
+		height: 100px;
+		padding: 5px 20px;
+		.clockTime {
+			font-size: 2.5em;
+		}
+		.dateTime {
+			font-size: 0.8em;
+			color: #e7d315;
+		}
+	}
+	.worldTime {
+		overflow: auto;
+		padding: 0 10px;
+		height: 260px;
+		.place {
+			display: flex;
+			flex-direction: row;
+			height: 50px;
+			width: 100%;
+			margin: 10px 0;
+			.dayNight {
+				margin: auto 0;
+				font-size: 2em;
+				padding: 5px 10px;
+				.fa-moon {
+					
+					color: #dddcdc;
+				}
+				.fa-sun {
+					color: #e7d315;
+				}
+			}
+			.city {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				.location {
+					.cityp {
+						padding: 5px 0;
+						font-size: 1.2em;
+					}
+					.differnce {
+						font-size: 0.8em;
+						color: #e7d315;
+					}
+				}
+				.dateTime {
+					.hour {
+						padding: 1px 0;
+						font-size: 1.5em;
+					}
+					.day {
+						font-size: 0.8em;
+						color: #e7d315;
+					}
+				}
+			}
+			.delete {
+				display: none;
+				cursor: pointer;
+				margin: auto 5px;
+				padding: 5px;
+				color: red;
+			}
+			.fa-times{
+				padding: 5px;
+			}
+			.show{
+				display: block;
+			}
+		}
+	}
+	.removeCity{
+		display: flex;
+		
+
+		justify-content: center;
+		font-size: 20px;
+		padding-bottom: 15px;
+		
+		.fa-times-circle{
+			display: block;
+			cursor: pointer;
+			color: red;
+			padding: 5px;
+		}
+		.fa-check-circle{
+			display: none;
+			cursor: pointer;
+			color: green;
+			padding: 5px;
+		}
+		
+	}
+	.newCity {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		color: #e7d315;
+		padding: 10px 10px;
+
+		input {
+			height: 30px;
+			border: none;
+			border-radius: 20px;
+			color: #fff;
+			background-color: #76798e;
+			font-size: 20px;
+			padding-left: 20px;
+			width: 70%;
+		}
+		input:focus{
+			outline: none;
+		}
+		p{
+			cursor: pointer;
+			font-size: 2em;
+			padding: 0 5px;
+		}
+		
+		::placeholder {
+			color: #e7d315;
+			font-size: 15px;
+		}
+	}
+	.topDecorCont,
+	.botDecorCont {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 20px;
+		.topTripleDecor,
+		.botTripleDecor {
+			display: flex;
+			flex-direction: row;
+			.topOne,
+			.topTwo,
+			.topThree,
+			.botOne,
+			.botTwo,
+			.botThree {
+				width: 10px;
+				margin: 0 5px;
+				background-color: #fe019a;
+				box-shadow: 0 0 7px 0px #fe019a;
+			}
+		}
+		.mainTopDecor,
+		.mainBotDecor {
+			height: 20px;
+			width: 35%;
+			background-color: #fe019a;
+			box-shadow: 0 0 7px 0px #fe019a;
+		}
+	}
+	.topDecorCont {
+		justify-content: flex-start;
+		top: 0;
+		left: 0;
+		.topTripleDecor {
+			.topOne,
+			.topTwo,
+			.topThree {
+				transform: skew(-19deg);
+			}
+		}
+		.mainTopDecor {
+			margin: 0 5px 0 -5px;
+			transform: skew(-19deg);
+		}
+	}
+	.botDecorCont {
+		justify-content: flex-end;
+		bottom: 0;
+		right: 0;
+		.botTripleDecor {
+			.botOne,
+			.botTwo,
+			.botThree {
+				transform: skew(19deg);
+			}
+		}
+		.mainBotDecor {
+			margin: 0 -5px 0 5px;
+			transform: skew(19deg, 0deg);
+		}
+	}
+}
+.modal-shadow {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	.modal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 400px;
+		width: 300px;
+		padding: 30px 60px;
+		border-radius: 15px;
+		color: #111;
+		background-color: #fff;
+		h3 {
+			text-align: center;
+			font-size: 30px;
+			margin-bottom: 20px;
+		}
+		p {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			margin-left: 20px;
+			font-size: 20px;
+		}
+		.close {
+			cursor: pointer;
+			display: block;
+			height: 40px;
+			width: 150px;
+			margin: 0 auto;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			color: #fff;
+			background-color: red;
+			margin-top: 10px;
+		}
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}
+
+@media (min-width: 375px) {
+}
+
+@media (min-width: 576px) {
+	.wrapper {
+		.worldTime{
+			.place{
+				width: 80%;
+				margin: 10px auto;
+			}
+		}
+		.top {
+			padding: 0 20px;
+		}
+		.menu {
+			padding: 0px 70px;
+		}
+	}
+	.modal {
+		height: 400px;
+		width: 400px;
+	}
+}
+
+@media (min-width: 768px) {
+	.wrapper {
+		justify-content: center;
+
+		.worldTime{
+			.place{
+				width: 80%;
+				margin: 10px auto;
+			}
+		}
+		.topDecorCont,
+		.botDecorCont {
+			display: flex;
+		}
+	}
+	
+	.container {
+		margin: 0 auto;
+		padding: 20px 0;
+		border: 1px solid black;
+		box-shadow: 0px 0px 20px 0px #fe019a;
+		border-radius: 20px;
+		width: 700px;
+		height: 580px;
+	}
+
+	.modal-shadow{
+		.modal {
+			text-align: left;
+			height: 400px;
+			width: 500px;
+			.fa-times{
+				margin-left: 5px;
+			}
+		}
+	}
+}

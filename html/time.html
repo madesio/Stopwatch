@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/time.css" />
+		<script
+			src="https://kit.fontawesome.com/d03876b445.js"
+			crossorigin="anonymous"
+		></script>
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;1,300&display=swap"
+				rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<div class="top">
+					<a href="../html/choice.html"><h1>Time</h1></a>
+					<p class="info">
+						<i class="fas fa-question"></i>
+					</p>
+				</div>
+				<div class="menu">
+                    <button class="navBtns alarm"><a href="../html/alarm.html"><i class="fas fa-bell"></i></a></button>
+                    <button class="navBtns clock"><a href="../html/time.html"><i class="fas fa-clock"></i></a></i></button>
+                    <button class="navBtns stopwtch"><a href="../html/stopwatch.html"><i class="fas fa-stopwatch"></i></a></button>
+                    <button class="navBtns timer"><a href="../html/countdown.html"><i class="fas fa-hourglass"></i></a></button>
+                </div>
+				<div class="clockContainer">
+                    <p class="clockTime"><span class="clockHr"></span>:<span class="clockMin"></span>:<span class="clockSec"></span></p>
+                    <p class="dateTime">Current: <span class="dateDay">12</span>/<span class="dateMon">11</span>/<span class=" dateYr">2021</span></p>
+                </div>
+                <div class="worldTime">
+					<ul class="worldTimeUl">
+
+					</ul>
+                </div>
+                <div class="newCity">
+                    <input type="text" class="cityInput" placeholder="Search for country or city">
+                    <p><i class="fas fa-plus-circle"></i></p>
+                </div>
+				<div class="removeCity">
+					<p><i class="far fa-times-circle"></i></p>
+					<p><i class="far fa-check-circle"></i></p>
+				</div>
+                <div class="topDecorCont">
+					<div class="mainTopDecor"></div>
+					<div class="topTripleDecor">
+						<div class="topOne"></div>
+						<div class="topTwo"></div>
+						<div class="topThree"></div>
+					</div>
+				</div>
+				<div class="botDecorCont">
+					<div class="botTripleDecor">
+						<div class="botOne"></div>
+						<div class="botTwo"></div>
+						<div class="botThree"></div>
+					</div>
+					<div class="mainBotDecor"></div>
+				</div>
+		</div>
+        
+		<div class="modal-shadow">
+			<div class="modal">
+				<h3>Info:</h3>
+				<p><i class="fas fa-times"></i> - Remove city </p>
+				<p><i class="fas fa-plus-circle"></i> - Add city</p>
+				
+				<button class="close">Close</button>
+			</div>
+		</div>
+
+		<script src="../js/main.js"></script>
+		<script src="../js/time.js"></script>
+	</body>
+</html>
+
+
+
+

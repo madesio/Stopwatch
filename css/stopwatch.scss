@@ -1,0 +1,342 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0;
+	-ms-overflow-style: none;
+}
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+
+body {
+	position: relative;
+	height: 100vh;
+	font-family: 'Roboto Mono', monospace;
+	background-color: #1a1f39;
+	color: #fff;
+	scrollbar-width: none;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding: 15px 0;
+	.top {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 15px;
+		color: #83eeff;
+		a {
+			text-decoration: none;
+			color: #83eeff;
+		}
+		.info {
+			margin: auto 0;
+			font-size: 20px;
+			i {
+				cursor: pointer;
+				padding: 10px;
+			}
+		}
+	}
+	.menu {
+		display: flex;
+		justify-content: space-around;
+		height: 30px;
+		.navBtns {
+			cursor: pointer;
+			background: none;
+			border: none;
+			font-size: 1em;
+			padding: 1px 0;
+			a {
+				text-decoration: none;
+				color: #e7d315;
+			}
+			i {
+				padding: 15px;
+			}
+		}
+		.active {
+			color: #e71538;
+			border-bottom: 1px solid red;
+		}
+	}
+	.stopwatch_container {
+		padding: 20px 0;
+		.circle {
+			width: 200px;
+			height: 200px;
+			border: 5px solid #e7d315;
+			border-radius: 50%;
+			margin: auto;
+			p {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+				font-size: 35px;
+			}
+		}
+	}
+	.buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		.controls {
+			cursor: pointer;
+		}
+
+		.start,
+		.pause {
+			height: 70px;
+			width: 70px;
+			border: 3px solid #e7d315;
+			border-radius: 50%;
+			margin: 0 25px;
+			font-size: 20px;
+			color: #fff;
+			background-color: transparent;
+		}
+		.start {
+			i {
+				margin-left: 5px;
+			}
+		}
+
+		.pause {
+			display: none;
+		}
+		.reset,
+		.stop {
+			height: 35px;
+			width: 35px;
+			border: 3px solid #e7d315;
+			border-radius: 50%;
+			color: #fff;
+			background-color: transparent;
+		}
+	}
+	.time-list {
+		text-align: center;
+		margin-top: 20px;
+		padding: 0 40px;
+		height: 130px;
+		// overflow: scroll;
+		overflow: auto;
+		li {
+			color: #999;
+			list-style-type: none;
+			padding: 5px;
+		}
+	}
+	.topDecorCont,
+	.botDecorCont {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 20px;
+		.topTripleDecor,
+		.botTripleDecor {
+			display: flex;
+			flex-direction: row;
+			.topOne,
+			.topTwo,
+			.topThree,
+			.botOne,
+			.botTwo,
+			.botThree {
+				width: 10px;
+				margin: 0 5px;
+				background-color: #fe019a;
+				box-shadow: 0 0 7px 0px #fe019a;
+			}
+		}
+		.mainTopDecor,
+		.mainBotDecor {
+			height: 20px;
+			width: 35%;
+			background-color: #fe019a;
+			box-shadow: 0 0 7px 0px #fe019a;
+		}
+	}
+	.topDecorCont {
+		justify-content: flex-start;
+		top: 0;
+		left: 0;
+		.topTripleDecor {
+			.topOne,
+			.topTwo,
+			.topThree {
+				transform: skew(-19deg);
+			}
+		}
+		.mainTopDecor {
+			margin: 0 5px 0 -5px;
+			transform: skew(-19deg);
+		}
+	}
+	.botDecorCont {
+		justify-content: flex-end;
+		bottom: 0;
+		right: 0;
+		.botTripleDecor {
+			.botOne,
+			.botTwo,
+			.botThree {
+				transform: skew(19deg);
+			}
+		}
+		.mainBotDecor {
+			margin: 0 -5px 0 5px;
+			transform: skew(19deg, 0deg);
+		}
+	}
+}
+.modal-shadow {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	.modal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 400px;
+		width: 300px;
+		padding: 30px 60px;
+		border-radius: 15px;
+		color: #111;
+		background-color: #fff;
+		h3 {
+			text-align: center;
+			font-size: 30px;
+			margin-bottom: 20px;
+		}
+		p {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			margin-left: 20px;
+			font-size: 20px;
+		}
+		.close {
+			cursor: pointer;
+			display: block;
+			height: 40px;
+			width: 150px;
+			margin: 0 auto;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			color: #fff;
+			background-color: red;
+			margin-top: 10px;
+		}
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}
+
+@media (min-width: 375px) {
+	.time-list {
+		height: 200px;
+	}
+}
+
+@media (min-width: 576px) {
+	.wrapper {
+		padding: 0px 50px;
+		.top {
+			padding: 0 20px;
+		}
+		.menu {
+			padding: 0px 70px;
+		}
+		.circle {
+			width: 250px;
+			height: 250px;
+		}
+		p {
+			font-size: 45px;
+		}
+	}
+	.circle .modal {
+		height: 400px;
+		width: 400px;
+	}
+}
+
+@media (min-width: 768px) {
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin: 0 auto;
+		padding: 20px 0;
+		border: 1px solid black;
+		box-shadow: 0px 0px 20px 0px #fe019a;
+		border-radius: 20px;
+		height: 580px;
+		width: 700px;
+		.navBtns {
+			height: 50px;
+			width: 50px;
+			font-size: 1em;
+		}
+		.circle {
+			width: 270px;
+			height: 270px;
+			p {
+				font-size: 50px;
+			}
+		}
+		.menu,
+		.buttons {
+			justify-content: space-around;
+		}
+		.buttons {
+			padding: 0 60px;
+		}
+		.time-list {
+			height: 150px;
+		}
+		.topDecorCont,
+		.botDecorCont {
+			display: flex;
+		}
+	}
+
+	.modal-shadow {
+		.modal {
+			text-align: left;
+			height: 400px;
+			width: 500px;
+		}
+	}
+}

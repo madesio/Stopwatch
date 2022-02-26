@@ -1,0 +1,499 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+::-webkit-scrollbar {
+	width: 0px;
+	height: 0;
+}
+html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+
+    -webkit-appearance: none !important;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+body {
+	position: relative;
+	height: 100vh;
+	font-family: 'Roboto Mono', monospace;
+	background-color: #1a1f39;
+	color: #fff;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	padding: 15px 0;
+	.top {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 15px;
+		color: #83EEFF;
+		a {
+			color: #83EEFF;
+			text-decoration: none;
+			
+		}
+		.info {
+			margin: auto 0;
+			font-size: 20px;
+			i {
+				cursor: pointer;
+				padding: 10px;
+			}
+		}
+	}
+	.menu {
+		display: flex;
+		justify-content: space-around;
+		height: 30px;
+		.navBtns {
+			cursor: pointer;
+			color: #999;
+			background: none;
+			border: none;
+			font-size: 1em;
+			padding: 1px 0;
+			a {
+				text-decoration: none;
+				color: #e7d315;
+			}
+			i {
+				padding: 15px;
+			}
+		}
+		.active {
+			color: red;
+			border-bottom: 1px solid red;
+		}
+	}
+	.alarmContainer {
+		margin-top: 30px;
+		height: 380px;
+		overflow: auto;
+		li{
+			list-style: none;
+		}
+		.alarm {
+			.alarmBox {
+				position: relative;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-around;
+				align-items: center;
+				padding: 0 35px 0 15px ;
+				margin: 20px 0;
+				color: #76798e;
+				.hour {
+					font-size: 30px;
+				}
+				.alarmStart {
+					font-size: 13px;
+				}
+
+				.switch {
+					position: relative;
+					display: inline-block;
+					height: 34px;
+					width: 60px;
+					margin-top: 7px;
+					input {
+						opacity: 0;
+						height: 0;
+						width: 0;
+					}
+					.slider {
+						position: absolute;
+						cursor: pointer;
+						top: 0;
+						left: 0;
+						bottom: 0;
+						right: 0;
+						background-color: #76798e;
+						;
+						transition: 0.4s;
+					}
+					.slider {
+						border-radius: 36px;
+					}
+					.slider:before {
+						border-radius: 50%;
+					}
+		
+					.slider::before {
+						position: absolute;
+						content: '';
+						top: 4px;
+						left: 4px;
+						height: 26px;
+						width: 26px;
+						background-color: #fff;
+						transition: 0.4s;
+					}
+					input:checked + .slider {
+						background-color: #e7d315;
+					}
+					input:checked + .slider:before {
+						transform: translateX(26px);
+					}
+				}	
+				.delete{
+					display: block;
+					cursor: pointer;
+					height: 40px;
+					width: 40px;
+					line-height: 40px;
+					text-align: center;
+					position: absolute;
+					right: 0;
+					color: rgb(150, 1, 1);
+				}
+				
+			}
+
+			.showC {
+				color: #e7d315;
+			}
+			
+		}
+			
+	}
+	.addAlarm {
+		display: flex;
+		justify-content: center;
+		p {
+			color: #e7d315;
+			cursor: pointer;
+			font-size: 2em;
+			padding: 0 5px;
+		}
+	}
+	.topDecorCont,
+	.botDecorCont {
+		display: none;
+		position: absolute;
+		width: 100%;
+		height: 20px;
+		.topTripleDecor,
+		.botTripleDecor {
+			display: flex;
+			flex-direction: row;
+			.topOne,
+			.topTwo,
+			.topThree,
+			.botOne,
+			.botTwo,
+			.botThree {
+				width: 10px;
+				margin: 0 5px;
+				background-color: #fe019a;
+				box-shadow: 0 0 7px 0px #fe019a;
+			}
+		}
+		.mainTopDecor,
+		.mainBotDecor {
+			height: 20px;
+			width: 35%;
+			background-color: #fe019a;
+			box-shadow: 0 0 7px 0px #fe019a;
+		}
+	}
+	.topDecorCont {
+		justify-content: flex-start;
+		top: 0;
+		left: 0;
+		.topTripleDecor {
+			.topOne,
+			.topTwo,
+			.topThree {
+				transform: skew(-19deg);
+			}
+		}
+		.mainTopDecor {
+			margin: 0 5px 0 -5px;
+			transform: skew(-19deg);
+		}
+	}
+	.botDecorCont {
+		justify-content: flex-end;
+		bottom: 0;
+		right: 0;
+		.botTripleDecor {
+			.botOne,
+			.botTwo,
+			.botThree {
+				transform: skew(19deg);
+			}
+		}
+		.mainBotDecor {
+			margin: 0 -5px 0 5px;
+			transform: skew(19deg, 0deg);
+		}
+	}
+}
+.alarmShadow {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	.alarmModal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 400px;
+		width: 300px;
+		padding: 30px 30px;
+		border: 1px solid #e7d315;
+		border-radius: 15px;
+		color: #fff;
+		background-color: #1a1f39;
+		.alarmTop {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			p {
+				padding: 10px;
+			}
+			i {
+				cursor: pointer;
+			}
+			.fa-times{
+				color: red;
+			}
+			.fa-check{
+				color: #e7d315;
+			}
+		}
+		.alarmTime {
+			display: flex;
+			flex-direction: row;
+			justify-content: space-evenly;
+			padding: 20px 0;
+			input {
+				height: 40px;
+				width: 40px;
+				text-align: center;
+				border: none;
+				border-radius: 10px;
+				outline: none;
+				color: #fff;
+				background-color: #76798e;
+			}
+			p {
+				line-height: 40px;
+			}
+			.hourDown,
+			.hourUp,
+			.minDown,
+			.minUp{
+				border: none;
+				color: #fff;
+				background-color: transparent;
+				padding: 0 10px;
+				cursor: pointer;
+			}
+		}
+		.alarmMenu {
+			.ringtone {
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+		}
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}
+.modal-shadow {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	.modal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 400px;
+		width: 300px;
+		padding: 30px 60px;
+		border-radius: 15px;
+		color: #111;
+		background-color: #fff;
+		h3 {
+			text-align: center;
+			font-size: 30px;
+			margin-bottom: 20px;
+		}
+		p {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: 10px;
+			margin-left: 20px;
+			font-size: 20px;
+		}
+		.close {
+			cursor: pointer;
+			display: block;
+			height: 40px;
+			width: 150px;
+			margin: 0 auto;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			color: #fff;
+			background-color: red;
+			margin-top: 10px;
+		}
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}
+.offAlarm {
+	display: none;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	.alarmModal {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		padding: 30px 60px;
+		border-radius: 15px;
+		color: #111;
+
+		.turnOff {
+			cursor: pointer;
+			display: block;
+			height: 40px;
+			width: 150px;
+			margin: 0 auto;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			color: #fff;
+			background-color: red;
+			margin-top: 10px;
+		}
+	}
+	.hide {
+		display: none;
+	}
+	.show {
+		display: block;
+	}
+}
+
+@media (min-width: 375px) {
+}
+
+@media (min-width: 576px) {
+	.wrapper {
+		.top {
+			padding: 0 20px;
+		}
+		.menu {
+			padding: 0px 70px;
+		}
+		.alarmContainer{
+			padding: 0 30px;
+			.alarm{
+				.alarmBox{
+					.alarmStart {
+						font-size: 15px;
+					}
+				}
+			}
+		}
+		
+	}
+	.modal {
+		height: 400px;
+		width: 400px;
+	}
+}
+
+@media (min-width: 768px) {
+	.wrapper {
+		justify-content: center;
+	}
+	.container {
+		margin: 0 auto;
+		padding: 20px 0;
+		border: 1px solid black;
+		box-shadow: 0px 0px 20px 0px #fe019a;
+		border-radius: 20px;
+		width: 700px;
+		height: 580px;
+		.topDecorCont,
+		.botDecorCont {
+			display: flex;
+		}
+	}
+	.alarm{
+		.alarmBox{
+			.delete{
+				left: 570px;
+			}
+			
+		}
+	}
+	.modal-shadow{
+		.modal {
+			text-align: left;
+			height: 400px;
+			width: 500px;
+			.fa-times{
+				margin-left: 5px;
+			}
+		}
+	}
+}

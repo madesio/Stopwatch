@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<link rel="stylesheet" href="../css/countdown.css" />
+		<script
+			src="https://kit.fontawesome.com/d03876b445.js"
+			crossorigin="anonymous"
+		></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+				href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,600;1,300&display=swap"
+				rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<div class="top">
+					<a href="../html/choice.html"><h1>Countdown</h1></a>
+					<p class="info">
+						<i class="fas fa-question"></i>
+					</p>
+				</div>
+				<div class="menu">
+                    <button class="navBtns alarm"><a href="../html/alarm.html"><i class="fas fa-bell"></i></a></button>
+                    <button class="navBtns clock"><a href="../html/time.html"><i class="fas fa-clock"></i></a></i></button>
+                    <button class="navBtns stopwtch"><a href="../html/stopwatch.html"><i class="fas fa-stopwatch"></i></a></button>
+                    <button class="navBtns timer"><a href="../html/countdown.html"><i class="fas fa-hourglass"></i></a></button>
+                </div>
+                <div class="countdownContainer">
+					<div class="circle">
+						<p class="countdown"><span class="hour">00</span>:<span class="minute">00</span>:<span class="second">00</span></p>
+					</div>
+					<div class="adjustmentButtons">
+						<div class="labels">
+							<p>HOUR</p>
+							<P class="min">MIN</P>
+							<P>SEC</P>
+						</div>
+						<div class="plusButtons">
+							<button class="sortUp hourUp"><i class="fas fa-sort-up "></i></button>
+							<button class="sortUp minUp"><i class="fas fa-sort-up "></i></button>
+							<button class="sortUp secUp"><i class="fas fa-sort-up "></i></button>
+						</div>
+						<div class="setTime">
+							<input type="number" class="setHour" min="0" onkeypress="return event.charCode != 45">
+							<input type="number" class="setMin" min="0" onkeypress="return event.charCode != 45">
+							<input type="number" class="setSec" min="0" onkeypress="return event.charCode != 45">
+						</div>
+						<div class="minusButtons">
+							<button class="sortDown hourDown"><i class="fas fa-sort-down "></i></button>
+							<button class="sortDown minDown"><i class="fas fa-sort-down "></i></button>
+							<button class="sortDown secDown"><i class="fas fa-sort-down "></i></button>
+						</div>
+					</div>
+					<div class="countdownStart">
+						<button class="startCountdown"><i class="fas fa-play"></i> Start</button>
+					</div>
+					<div class="countdownPause">
+						<button class="pauseCountdown"><i class="fas fa-pause"></i> Pause</button>
+					</div>
+					<div class="countdownStop">
+						<button class="stopCountdown"><i class="fas fa-stop"></i>Stop</button>
+					</div>
+				</div>
+				<div class="topDecorCont">
+					<div class="mainTopDecor"></div>
+					<div class="topTripleDecor">
+						<div class="topOne"></div>
+						<div class="topTwo"></div>
+						<div class="topThree"></div>
+					</div>
+				</div>
+				<div class="botDecorCont">
+					<div class="botTripleDecor">
+						<div class="botOne"></div>
+						<div class="botTwo"></div>
+						<div class="botThree"></div>
+					</div>
+					<div class="mainBotDecor"></div>
+				</div>
+		</div>
+        
+		<div class="modal-shadow">
+			<div class="modal">
+				<h3>Info:</h3>
+				<p><i class="fas fa-sort-up"></i> - Increase time</p>
+				<p><i class="fas fa-sort-down"></i> - Decrease time</p>
+				<p><i class="fas fa-play"></i> - Start</p>
+				<p><i class="fas fa-pause"></i> - Pause</p>
+				<p><i class="fas fa-stop"></i> - Clear all</p>
+
+				<button class="close">Close</button>
+			</div>
+		</div>
+
+		<script src="../js/main.js"></script>
+		<script src="../js/countdown.js"></script>
+	</body>
+</html>
